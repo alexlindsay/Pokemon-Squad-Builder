@@ -5,20 +5,14 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <h1>
+          Welcome to the World Class Pokémon Builder!
+        </h1>
+        {/* this will be a component for holding questions and user input */}
+        <h3 style={{'alignContent' : 'center'}}>Questions for user to answer HERE</h3>
+        <p>User's pokemon will show up below vvv</p>
+        {/* Each pokemon container will be a separate pokemon component */}
+        <p>Pikachu        Blastoise        Charizard        Mewtwo</p>
     </div>
   );
 }
