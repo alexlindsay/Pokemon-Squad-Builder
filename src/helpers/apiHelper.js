@@ -4,7 +4,12 @@ const pokeBaseUrl = 'https://pokeapi.co/api/v2/pokemon';
 export const pokemonApiJsonConverter = (json) => {
     // return cleaned up Pokemone JSON object
     // {id: int, img: url_str, name: str}
-    return {}
+
+    return {
+        id: json.id,
+        name: json.name,
+        img: json.sprites.front_default
+    }
 };
 
 /*
