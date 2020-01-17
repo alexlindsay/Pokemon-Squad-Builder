@@ -12,7 +12,7 @@ const Pokemon = ({ img, name, value }) => (
     ) : (
       <div className="flex flex-col items-center">
         <div className="h-5/6">
-          <img src={img ? img : defaultImg} />
+          <img src={img ? img : defaultImg} alt={name} />
         </div>
         <div className="h-1/6">
           <b>{_startCase(name)}</b>
