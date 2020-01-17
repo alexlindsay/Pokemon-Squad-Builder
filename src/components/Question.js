@@ -24,19 +24,22 @@ class Question extends Component {
   render() {
     return (
       <form
-        style={{ border: "2px solid grey" }}
+        className="rounded-lg w-1/2 py-4 text-center bg-yellow-300"
         onSubmit={event => this.submitUserInput(event, this.props.submit)}
       >
         {this.props.index >= 6 ? (
           <h3>Congratulations! You're ready to battle!</h3>
         ) : (
           <div>
-            <h3>{squadBuilderQuestions[this.props.index]}</h3>
+            <h3 className="mb-4 text-xl">
+              {squadBuilderQuestions[this.props.index]}
+            </h3>
             <input
+              className="w-1/3 border border-black p-2"
               value={this.state.userInput}
               onChange={this.inputChangedHandler}
             />
-            <button>Submit</button>
+            <button className="ml-1 p-2 border border-black">Submit</button>
           </div>
         )}
       </form>

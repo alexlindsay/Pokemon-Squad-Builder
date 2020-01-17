@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./App.css";
 import Question from "./components/Question";
 import Pokemon from "./components/Pokemon";
 import { pokemonApi, pokemonApiJsonConverter } from "./helpers/apiHelper";
@@ -56,19 +55,32 @@ class App extends Component {
     console.log("Pokemon list - ", pokemonList);
 
     return (
-      <div className="App">
-        <h1>Welcome to the World Class Pokémon Builder!</h1>
+      <div className="flex flex-col h-screen bg-blue-200">
         {this.state.questionIndex > 0 && (
-          <button onClick={this.resetHandler}>RESET</button>
+          <div className="rounded-sm w-24 h-12 bg-red-700 absolute top-0 right-0">
+            <button
+              className="w-full h-full text-center text-yellow-300"
+              onClick={this.resetHandler}
+            >
+              RESET
+            </button>
+          </div>
         )}
+        <h1 className="py-4 text-3xl text-center">
+          Welcome to the World Class Pokémon Builder!
+        </h1>
+
         {/* this will be a component for holding questions and user input */}
-        <Question
-          submit={this.questionAnsweredHandler}
-          index={this.state.questionIndex}
-        />
-        <p>User's pokemon will show up below vvv</p>
+        <div className="flex flex-col items-center">
+          <Question
+            submit={this.questionAnsweredHandler}
+            index={this.state.questionIndex}
+          />
+        </div>
         {/* Each pokemon container will be a separate pokemon component */}
-        {pokemonList}
+        <div className="w-1/3 flex justify-center flex-wrap mx-auto mt-4">
+          {pokemonList}
+        </div>
       </div>
     );
   }
