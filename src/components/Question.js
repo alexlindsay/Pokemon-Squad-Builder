@@ -11,11 +11,9 @@ class Question extends Component {
 
   inputChangedHandler = event => {
     this.setState({ userInput: event.target.value });
-    console.log("changed input - ", this.state.userInput);
   };
 
   submitUserInput(event, submitFxn) {
-    console.log("submitUserInput");
     event.preventDefault();
     submitFxn(this.state.userInput);
     this.setState({ userInput: "" });

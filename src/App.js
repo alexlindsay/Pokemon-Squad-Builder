@@ -14,25 +14,18 @@ class App extends Component {
   }
 
   questionAnsweredHandler = input => {
-    // when user clicks submit, use there answer to generate a random number, pass that to pokemon API, update pokemon and question index
-    console.log("SUBMIT CLICKED with state - ", this.state);
-    console.log("SUBMIT - user input is ", input);
     const pokeNum = stringHasher(input);
-    console.log("SUBMIT - user input hashed ", pokeNum);
+    this.setState({ pokemons: [...this.state.pokemons, "loading"] });
 
     pokemonApi(pokeNum)
       .then(res => {
         const newPoke = pokemonApiJsonConverter(res.data);
-        console.log("New poke is ", newPoke);
-        this.setState(
-          {
-            pokemons: [...this.state.pokemons, newPoke],
-            questionIndex: this.state.questionIndex + 1
-          },
-          () => {
-            console.log("set state finished w/ state : ", this.state);
-          }
-        );
+        const updatedList = this.state.pokemons;
+        updatedList.pop();
+        this.setState({
+          pokemons: [...updatedList, newPoke],
+          questionIndex: this.state.questionIndex + 1
+        });
       })
       .catch(error => {
         console.log("ERROR getting pokemon - ", error);
@@ -40,19 +33,14 @@ class App extends Component {
   };
 
   resetHandler = () => {
-    console.log("Reset hit");
     this.setState({ pokemons: [], questionIndex: 0 });
   };
 
   render() {
-    /* Use the pokemon list to create array of pokemon components */
-
     const pokemonList = this.state.pokemons.map(pokemon => {
       const { id, img, name } = pokemon;
-      return <Pokemon id={id} img={img} name={name} key={id} />;
+      return <Pokemon id={id} img={img} name={name} key={id} value={pokemon} />;
     });
-    console.log("this state pokemons is ", this.state.pokemons);
-    console.log("Pokemon list - ", pokemonList);
 
     return (
       <div className="flex flex-col h-screen bg-blue-200">
@@ -70,14 +58,13 @@ class App extends Component {
           Welcome to the World Class Pokémon Builder!
         </h1>
 
-        {/* this will be a component for holding questions and user input */}
         <div className="flex flex-col items-center">
           <Question
             submit={this.questionAnsweredHandler}
             index={this.state.questionIndex}
           />
         </div>
-        {/* Each pokemon container will be a separate pokemon component */}
+
         <div className="w-1/3 flex justify-center flex-wrap mx-auto mt-4">
           {pokemonList}
         </div>
