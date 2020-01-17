@@ -1,15 +1,10 @@
-import React, {Component} from 'react';
+import React from "react";
 
-class Pokemon extends Component {
-
-    render() {
-        return (
-            <div>
-                <img src={this.props.img}/>
-                <b>{this.props.name}</b>
-            </div>
-        )
-    }
-}
+const Pokemon = ({ img, name }) => (
+  <div>
+    <img src={img} />
+    <b>{name}</b>
+  </div>
+);
 
 export default Pokemon;
