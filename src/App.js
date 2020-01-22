@@ -15,15 +15,12 @@ class App extends Component {
 
   questionAnsweredHandler = input => {
     const pokeNum = stringHasher(input);
-    this.setState({ pokemons: [...this.state.pokemons, "loading"] });
 
     pokemonApi(pokeNum)
       .then(res => {
         const newPoke = pokemonApiJsonConverter(res.data);
-        const updatedList = this.state.pokemons;
-        updatedList.pop();
         this.setState({
-          pokemons: [...updatedList, newPoke],
+          pokemons: [...this.state.pokemons, newPoke],
           questionIndex: this.state.questionIndex + 1
         });
       })

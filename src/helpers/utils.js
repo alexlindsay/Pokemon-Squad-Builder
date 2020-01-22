@@ -7,11 +7,13 @@ export const squadBuilderQuestions = [
     "Where do you not live?"
 ];
 
+export const defaultImg = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/premier-ball.png";
+
 export const stringHasher = (string) => {
     let final = 0;
     for (let i = 0; i < string.length; i++) {
         let charCode = string.charCodeAt(i);
         final = ((final << 5) - final) + charCode
     }
-    return (final % 808) + 1
+    return Math.abs(final % 808) + 1
 };
