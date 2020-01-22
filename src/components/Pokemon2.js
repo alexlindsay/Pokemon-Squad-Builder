@@ -14,7 +14,7 @@ const Pokemon = ({ img, name, value }) => {
         pokeImage.onload = () => {
             setImageLoaded(true);
         }
-    }, []);
+    }, [pokeImage]);
 
     return (
         <div className="m-2 flex flex-col items-center rounded-lg w-32 h-40 bg-yellow-300">

@@ -8,10 +8,10 @@ export const squadBuilderQuestions = [
 ];
 
 export const stringHasher = (string) => {
-    let final = 1;
+    let final = 0;
     for (let i = 0; i < string.length; i++) {
         let charCode = string.charCodeAt(i);
-        final = final * charCode
+        final = ((final << 5) - final) + charCode
     }
-    return (final % 806) + 1
+    return (final % 808) + 1
 };
