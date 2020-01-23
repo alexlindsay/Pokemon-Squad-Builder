@@ -15,5 +15,5 @@ export const stringHasher = (string) => {
         let charCode = string.charCodeAt(i);
         final = ((final << 5) - final) + charCode
     }
-    return Math.abs(final % 808) + 1
+    return Math.abs(final % 807) + 1
 };

@@ -3,7 +3,7 @@ import _startCase from "lodash/startCase";
 import Loader from "./Loader";
 import {defaultImg} from "../helpers/utils";
 
-const Pokemon = ({ img, name, value }) => {
+const Pokemon = ({ img, name }) => {
     const pokeImage = new Image();
     pokeImage.src = img ? img : defaultImg;
     const [imageLoaded, setImageLoaded] = useState(false);

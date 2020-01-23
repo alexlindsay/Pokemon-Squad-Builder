@@ -10,6 +10,7 @@ class Question extends Component {
   }
 
   inputChangedHandler = event => {
+    document.getElementById("submitBtn").disabled = event.target.value.length <= 0;
     this.setState({ userInput: event.target.value });
   };
 
@@ -17,6 +18,7 @@ class Question extends Component {
     event.preventDefault();
     submitFxn(this.state.userInput);
     this.setState({ userInput: "" });
+    document.getElementById("submitBtn").disabled = true;
   }
 
   render() {
@@ -37,7 +39,7 @@ class Question extends Component {
               value={this.state.userInput}
               onChange={this.inputChangedHandler}
             />
-            <button className="ml-1 p-2 border border-black">Submit</button>
+            <button id="submitBtn" disabled={true} className="ml-1 p-2 border border-black">Submit</button>
           </div>
         )}
       </form>
