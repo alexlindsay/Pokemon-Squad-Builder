@@ -1,9 +1,11 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useContext, useEffect, useRef, useState} from "react";
 import { squadBuilderQuestions } from "../helpers/utils";
+import CssContext from "../context/CssContext";
 
 const Question = (props) => {
     const [userInput, setUserInput] = useState("");
     const buttonRef = useRef("");
+    const { styles } = useContext(CssContext);
 
     const inputChangedHandler = event => {
         setUserInput(event.target.value);
@@ -27,7 +29,7 @@ const Question = (props) => {
 
     return (
         <form
-            className="rounded-lg w-1/2 py-4 text-center bg-yellow-300"
+            className={styles.formStyle}
             onSubmit={event => submitUserInput(event, props.submit)}
         >
             {props.index >= 6 ? (
@@ -38,11 +40,11 @@ const Question = (props) => {
                         {squadBuilderQuestions[props.index]}
                     </h3>
                     <input
-                        className="w-1/3 border border-black p-2"
+                        className="w-1/3 border border-black p-2" //inputStyle
                         value={userInput}
                         onChange={inputChangedHandler}
                     />
-                    <button ref={buttonRef} className="ml-1 p-2 border border-black">Submit</button>
+                    <button ref={buttonRef} className={styles.submitBtnStyle}>Submit</button>
                 </div>
             )}
         </form>

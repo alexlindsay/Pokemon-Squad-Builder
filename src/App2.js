@@ -1,12 +1,17 @@
-import React, { useState } from "react";
-import Question from "./components/Question";
+import React, {createContext, useContext, useState} from "react";
+import Question from "./components/Question2";
 import Pokemon from "./components/Pokemon2";
 import { pokemonApi, pokemonApiJsonConverter } from "./helpers/apiHelper";
 import { stringHasher } from "./helpers/utils";
+import Button from './components/Button';
+import Layout from "./containers/Layout";
+import CssContext from './context/CssContext';
 
 function App2() {
     const [pokemons, setPokemons] = useState([]);
     const [questionIndex, setQuestionIndex] = useState(0);
+
+    const { styles } = useContext(CssContext);
 
     const questionAnsweredHandler = input => {
         const pokeNum = stringHasher(input);
@@ -32,33 +37,29 @@ function App2() {
         return <Pokemon id={id} img={img} name={name} key={id} value={pokemon} />;
     });
 
+
     return (
-        <div className="flex flex-col h-screen bg-blue-200">
-            {questionIndex > 0 && (
-                <div className="rounded-sm w-24 h-12 bg-red-700 absolute top-0 right-0">
-                    <button
-                        className="w-full h-full text-center text-yellow-300"
-                        onClick={resetHandler}
-                    >
-                        RESET
-                    </button>
+        <Layout>
+            <div className={styles.appStyle}>
+                { questionIndex > 0 && (
+                    <Button text="RESET" style={styles.topRightBtnStyle} clicked={resetHandler}/>
+                )}
+                <h1 className="py-4 text-3xl text-center">
+                    Welcome to the World Class Pokémon Builder!
+                </h1>
+
+                <div className="flex flex-col items-center">
+                    <Question
+                        submit={questionAnsweredHandler}
+                        index={questionIndex}
+                    />
                 </div>
-            )}
-            <h1 className="py-4 text-3xl text-center">
-                Welcome to the World Class Pokémon Builder!
-            </h1>
 
-            <div className="flex flex-col items-center">
-                <Question
-                    submit={questionAnsweredHandler}
-                    index={questionIndex}
-                />
+                <div className={styles.listContainerStyle}>
+                    {pokemonList}
+                </div>
             </div>
-
-            <div className="w-1/3 flex justify-center flex-wrap mx-auto mt-4">
-                {pokemonList}
-            </div>
-        </div>
+        </Layout>
     );
 }
 
