@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component, createRef} from "react";
 import { squadBuilderQuestions } from "../helpers/utils";
 
 class Question extends Component {
@@ -7,9 +7,11 @@ class Question extends Component {
     this.state = {
       userInput: ""
     };
+    this.btnRef = createRef();
   }
 
   inputChangedHandler = event => {
+    this.btnRef.current.disabled = event.target.value.length <= 0;
     this.setState({ userInput: event.target.value });
   };
 
@@ -17,6 +19,7 @@ class Question extends Component {
     event.preventDefault();
     submitFxn(this.state.userInput);
     this.setState({ userInput: "" });
+    this.btnRef.current.disabled = true;
   }
 
   render() {
@@ -37,7 +40,7 @@ class Question extends Component {
               value={this.state.userInput}
               onChange={this.inputChangedHandler}
             />
-            <button className="ml-1 p-2 border border-black">Submit</button>
+            <button ref={this.btnRef} disabled={true} className="ml-1 p-2 border border-black">Submit</button>
           </div>
         )}
       </form>

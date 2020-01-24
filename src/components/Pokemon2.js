@@ -3,10 +3,10 @@ import _startCase from "lodash/startCase";
 import Loader from "./Loader";
 import { defaultImg } from "../helpers/utils";
 
-const Pokemon = ({ img, name, value }) => {
-  const pokeImage = new Image();
-  pokeImage.src = img ? img : defaultImg;
-  const [imageLoaded, setImageLoaded] = useState(false);
+const Pokemon = ({ img, name }) => {
+    const pokeImage = new Image();
+    pokeImage.src = img ? img : defaultImg;
+    const [imageLoaded, setImageLoaded] = useState(false);
 
   /* Acts like componentDidMount, ignore ESlint warning if possible otherwise add pokeImage to dependency array */
   useEffect(() => {

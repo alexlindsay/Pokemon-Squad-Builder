@@ -46,7 +46,7 @@ class App extends Component {
   render() {
     const pokemonList = this.state.pokemons.map(pokemon => {
       const { id, img, name } = pokemon;
-      return <Pokemon id={id} img={img} name={name} key={id} value={pokemon} />;
+      return <Pokemon id={id} img={img} name={name} key={id} />;
     });
 
     return (
