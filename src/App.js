@@ -9,13 +9,18 @@ class App extends Component {
     super(props);
     this.state = {
       pokemons: [],
-      questionIndex: 0
+      questionIndex: 0,
+      pokeNum: null
     };
   }
 
-  questionAnsweredHandler = input => {
-    const pokeNum = stringHasher(input);
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.pokeNum !== this.state.pokeNum) {
+      this.fetchPokemon(this.state.pokeNum);
+    }
+  }
 
+  fetchPokemon(pokeNum) {
     pokemonApi(pokeNum)
       .then(res => {
         const newPoke = pokemonApiJsonConverter(res.data);
@@ -27,6 +32,11 @@ class App extends Component {
       .catch(error => {
         console.log("ERROR getting pokemon - ", error);
       });
+  }
+
+  questionAnsweredHandler = input => {
+    const hashedPokeNum = stringHasher(input);
+    this.setState({ pokeNum: hashedPokeNum });
   };
 
   resetHandler = () => {

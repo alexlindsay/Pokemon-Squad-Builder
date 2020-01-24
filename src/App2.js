@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useState} from "react";
+import React, {useContext, useState} from "react";
 import Question from "./components/Question2";
 import Pokemon from "./components/Pokemon2";
 import { pokemonApi, pokemonApiJsonConverter } from "./helpers/apiHelper";
@@ -7,35 +7,44 @@ import Button from './components/Button';
 import Layout from "./containers/Layout";
 import CssContext from './context/CssContext';
 
-function App2() {
-    const [pokemons, setPokemons] = useState([]);
-    const [questionIndex, setQuestionIndex] = useState(0);
+const App2 = () => {
+  const [pokemons, setPokemons] = useState([]);
+  const [questionIndex, setQuestionIndex] = useState(0);
+  const [pokeNum, setPokeNum] = useState(null);
+  const { styles } = useContext(CssContext);
 
-    const { styles } = useContext(CssContext);
+  useEffect(() => {
+    if (pokeNum !== null) {
+      fetchPokemon(pokeNum);
+    }
+  }, [pokeNum]);
 
-    const questionAnsweredHandler = input => {
-        const pokeNum = stringHasher(input);
+  const questionAnsweredHandler = input => {
+    const hashedPokeNum = stringHasher(input);
+    setPokeNum(hashedPokeNum);
+  };
 
-        pokemonApi(pokeNum)
-            .then(res => {
-                const newPoke = pokemonApiJsonConverter(res.data);
-                setPokemons([...pokemons, newPoke]);
-                setQuestionIndex(questionIndex + 1);
-            })
-            .catch(error => {
-                console.log("ERROR getting pokemon - ", error);
-            });
-    };
+  const fetchPokemon = pokeNum => {
+    pokemonApi(pokeNum)
+        .then(res => {
+            const newPoke = pokemonApiJsonConverter(res.data);
+            setPokemons([...pokemons, newPoke]);
+            setQuestionIndex(questionIndex + 1);
+        })
+        .catch(error => {
+            console.log("ERROR getting pokemon - ", error);
+        });
+  };
 
-    const resetHandler = () => {
-        setPokemons( []);
-        setQuestionIndex(0);
-    };
+  const resetHandler = () => {
+    setPokemons([]);
+    setQuestionIndex(0);
+  };
 
-    const pokemonList = pokemons.map(pokemon => {
-        const { id, img, name } = pokemon;
-        return <Pokemon id={id} img={img} name={name} key={id} value={pokemon} />;
-    });
+  const pokemonList = pokemons.map(pokemon => {
+    const { id, img, name } = pokemon;
+    return <Pokemon id={id} img={img} name={name} key={id} value={pokemon} />;
+  });
 
 
     return (
