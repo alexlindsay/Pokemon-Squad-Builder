@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useEffect, useContext, useState} from "react";
 import Question from "./components/Question2";
 import Pokemon from "./components/Pokemon2";
 import { pokemonApi, pokemonApiJsonConverter } from "./helpers/apiHelper";
