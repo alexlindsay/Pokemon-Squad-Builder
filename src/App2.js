@@ -4,7 +4,6 @@ import Pokemon from "./components/Pokemon2";
 import { pokemonApi, pokemonApiJsonConverter } from "./helpers/apiHelper";
 import { stringHasher } from "./helpers/utils";
 import Button from './components/Button';
-import Layout from "./containers/Layout";
 import CssContext from './context/CssContext';
 
 const App2 = () => {
@@ -48,7 +47,7 @@ const App2 = () => {
 
 
     return (
-        <Layout>
+        <div>
             <div className={styles.appStyle}>
                 { questionIndex > 0 && (
                     <Button text="RESET" style={styles.topRightBtnStyle} clicked={resetHandler}/>
@@ -68,7 +67,7 @@ const App2 = () => {
                     {pokemonList}
                 </div>
             </div>
-        </Layout>
+        </div>
     );
 }
 

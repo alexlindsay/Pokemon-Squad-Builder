@@ -10,7 +10,7 @@ const CssContext = createContext({
         defaultBtnStyle: "rounded-sm w-24 h-12 bg-red-700 absolute",
         btnStyle: "w-full h-full text-center text-yellow-300",
         appStyle: "flex flex-col h-screen bg-blue-200",
-        listContainerStyle: "w-1/3 flex justify-center flex-wrap mx-auto mt-4"
+        listContainerStyle: "w-1/2 flex justify-center flex-wrap mx-auto mt-4"
     }
 });
 
