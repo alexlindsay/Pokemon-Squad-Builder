@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 //Exercise 1
-import App from "./Exercises/Exercise2";
+import App from "./Exercises/Exercise1";
 
 //Exercise 2
 //import App from "./Exercises/Exercise2";

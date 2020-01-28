@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useRef, useState} from "react";
-import { squadBuilderQuestions } from "../helpers/utils";
-import CssContext from "../context/CssContext";
+import { squadBuilderQuestions } from "../../helpers/utils";
+import CssContext from "../../context/CssContext";
 
 const Question = (props) => {
     const [userInput, setUserInput] = useState("");

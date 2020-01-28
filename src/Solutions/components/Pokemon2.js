@@ -1,8 +1,8 @@
 import React, {useContext, useEffect, useState} from "react";
 import _startCase from "lodash/startCase";
-import Loader from "./Loader";
-import { defaultImg } from "../helpers/utils";
-import CssContext from "../context/CssContext";
+import Loader from "../../components/Loader";
+import { defaultImg } from "../../helpers/utils";
+import CssContext from "../../context/CssContext";
 
 const Pokemon = ({ img, name }) => {
     const pokeImage = new Image();

@@ -1,6 +1,6 @@
 import React, {useEffect, useContext, useReducer} from "react";
-import Question from "../components/Question2";
-import Pokemon from "../components/Pokemon2";
+import Question from "./components/Question2";
+import Pokemon from "./components/Pokemon2";
 import { pokemonApi, pokemonApiJsonConverter } from "../helpers/apiHelper";
 import { stringHasher } from "../helpers/utils";
 import Button from '../components/Button';
