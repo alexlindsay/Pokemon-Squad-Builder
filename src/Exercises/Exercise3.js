@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Question from "./components/Question";
-import Pokemon from "./components/Pokemon";
-import { pokemonApi, pokemonApiJsonConverter } from "./helpers/apiHelper";
-import { stringHasher } from "./helpers/utils";
+import Question from "../components/Question";
+import Pokemon from "../components/Pokemon";
+import { pokemonApi, pokemonApiJsonConverter } from "../helpers/apiHelper";
+import { stringHasher } from "../helpers/utils";
 
 class App extends Component {
   constructor(props) {

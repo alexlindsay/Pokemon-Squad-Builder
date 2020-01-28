@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
 import CssContext from "./context/CssContext";
 import {colorStyles, darkStyles} from "./helpers/utils";
-
-/* Update the import App statement to load correct exercise */
-import App from "./App";
+import App from "./Exercises/Exercise3";
 
 
 const PokemonApp = props => {
@@ -15,6 +13,7 @@ const PokemonApp = props => {
 
     const styles = darkMode ? darkStyles : colorStyles;
     return (
+        /* The CssContext.Provider allows us to change the initial Context values and pass them down to our App */
         <CssContext.Provider value={{styles, darkMode, toggleDarkMode}}>
             <App/>
         </CssContext.Provider>
@@ -22,5 +21,3 @@ const PokemonApp = props => {
 };
 
 export default PokemonApp;
-
-

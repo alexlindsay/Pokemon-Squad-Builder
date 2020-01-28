@@ -1,11 +1,11 @@
 import React, {useEffect, useContext, useReducer} from "react";
-import Question from "./components/Question2";
-import Pokemon from "./components/Pokemon2";
-import { pokemonApi, pokemonApiJsonConverter } from "./helpers/apiHelper";
-import { stringHasher } from "./helpers/utils";
-import Button from './components/Button';
-import Loader from "./components/Loader";
-import CssContext from './context/CssContext';
+import Question from "../components/Question2";
+import Pokemon from "../components/Pokemon2";
+import { pokemonApi, pokemonApiJsonConverter } from "../helpers/apiHelper";
+import { stringHasher } from "../helpers/utils";
+import Button from '../components/Button';
+import Loader from "../components/Loader";
+import CssContext from '../context/CssContext';
 
 const initialState = {
     pokemons: [],
@@ -29,7 +29,7 @@ function reducer(state, action) {
     }
 }
 
-const App3 = () => {
+const App = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
     const {pokemons, questionIndex, pokeNum, loading} = state;
     const { styles, darkMode, toggleDarkMode } = useContext(CssContext);
@@ -83,11 +83,11 @@ const App3 = () => {
                 { questionIndex > 0 && (
                     <Button text="RESET" style={styles.topRightBtnStyle} clicked={resetHandler}/>
                 )}
-                <h1 className="py-4 text-3xl text-center">
+                <h1 className={styles.titleStyle}>
                     Welcome to the World Class Pokémon Builder!
                 </h1>
 
-                <div className="flex flex-col items-center">
+                <div className={styles.columnCenterContainer}>
                     <Question
                         submit={questionAnsweredHandler}
                         index={questionIndex}
@@ -102,4 +102,4 @@ const App3 = () => {
     );
 };
 
-export default App3;
+export default App;

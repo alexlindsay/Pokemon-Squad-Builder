@@ -1,5 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./PokemonApp";
+import App from "./Exercises/Exercise3";
+
+/*
+* For Exercises on Context and Reducer switch to the import App statement below
+*   import App from "./PokemonApp"
+*/
 
 ReactDOM.render(<App />, document.getElementById("root"));

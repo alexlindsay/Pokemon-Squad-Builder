@@ -27,7 +27,10 @@ export const colorStyles = {
     defaultBtnStyle: "rounded-sm w-24 h-12 bg-red-700 absolute",
     btnStyle: "w-full h-full text-center text-yellow-300",
     appStyle: "flex flex-col h-screen bg-blue-200",
-    listContainerStyle: "w-1/3 flex justify-center flex-wrap mx-auto mt-4"
+    listContainerStyle: "w-1/3 flex justify-center flex-wrap mx-auto mt-4",
+    pokemonContainer: "m-2 flex flex-col items-center rounded-lg w-32 h-40 bg-yellow-300",
+    titleStyle: "py-4 text-3xl text-center",
+    columnCenterContainer: "flex flex-col items-center"
 };
 
 export const darkStyles = {
@@ -38,6 +41,9 @@ export const darkStyles = {
     topLeftBtnStyle: "rounded-sm w-24 h-12 bg-gray-700 absolute top-0 left-0",
     defaultBtnStyle: "rounded-sm w-24 h-12 bg-gray-700 absolute",
     btnStyle: "w-full h-full text-center text-yellow-300",
-    appStyle: "flex flex-col h-screen bg-blue-200",
-    listContainerStyle: "w-1/3 flex justify-center flex-wrap mx-auto mt-4"
+    appStyle: "flex flex-col h-screen bg-gray-900",
+    listContainerStyle: "w-1/3 flex justify-center flex-wrap mx-auto mt-4",
+    pokemonContainer: "m-2 flex flex-col items-center rounded-lg w-32 h-40 bg-gray-500",
+    titleStyle: "py-4 text-3xl text-center text-yellow-300",
+    columnCenterContainer: "flex flex-col items-center"
 };

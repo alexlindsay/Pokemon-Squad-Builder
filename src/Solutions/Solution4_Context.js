@@ -1,12 +1,12 @@
 import React, {useEffect, useContext, useState} from "react";
-import Question from "./components/Question2";
-import Pokemon from "./components/Pokemon2";
-import { pokemonApi, pokemonApiJsonConverter } from "./helpers/apiHelper";
-import { stringHasher } from "./helpers/utils";
-import Button from './components/Button';
-import CssContext from './context/CssContext';
+import Question from "../components/Question2";
+import Pokemon from "../components/Pokemon2";
+import { pokemonApi, pokemonApiJsonConverter } from "../helpers/apiHelper";
+import { stringHasher } from "../helpers/utils";
+import Button from '../components/Button';
+import CssContext from '../context/CssContext';
 
-const App2 = () => {
+const App = () => {
   const [pokemons, setPokemons] = useState([]);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [pokeNum, setPokeNum] = useState(null);
@@ -52,11 +52,11 @@ const App2 = () => {
                 { questionIndex > 0 && (
                     <Button text="RESET" style={styles.topRightBtnStyle} clicked={resetHandler}/>
                 )}
-                <h1 className="py-4 text-3xl text-center">
+                <h1 className={styles.titleStyle}>
                     Welcome to the World Class Pokémon Builder!
                 </h1>
 
-                <div className="flex flex-col items-center">
+                <div className={styles.columnCenterContainer}>
                     <Question
                         submit={questionAnsweredHandler}
                         index={questionIndex}
@@ -71,4 +71,4 @@ const App2 = () => {
     );
 }
 
-export default App2;
+export default App;

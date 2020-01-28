@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, {useContext, useEffect, useState} from "react";
 import _startCase from "lodash/startCase";
 import Loader from "./Loader";
 import { defaultImg } from "../helpers/utils";
+import CssContext from "../context/CssContext";
 
 const Pokemon = ({ img, name }) => {
     const pokeImage = new Image();
     pokeImage.src = img ? img : defaultImg;
     const [imageLoaded, setImageLoaded] = useState(false);
+    const { styles } = useContext(CssContext);
 
   /* Acts like componentDidMount, ignore ESlint warning if possible otherwise add pokeImage to dependency array */
   useEffect(() => {
@@ -16,11 +18,11 @@ const Pokemon = ({ img, name }) => {
   }, []);
 
   return (
-    <div className="m-2 flex flex-col items-center rounded-lg w-32 h-40 bg-yellow-300">
+    <div className={styles.pokemonContainer}>
       {!imageLoaded ? (
         <Loader />
       ) : (
-        <div className="flex flex-col items-center">
+        <div className={styles.columnCenterContainer}>
           <div className="h-5/6">
             <img src={pokeImage.src} alt={name} />
           </div>
