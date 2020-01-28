@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import CssContext from "./context/CssContext";
 import {colorStyles, darkStyles} from "./helpers/utils";
-import App from "./Exercises/Exercise3";
-
+import App from "./LiveCoding/liveCoding";
 
 const PokemonApp = props => {
     const [darkMode, setDarkMode] = useState(false);

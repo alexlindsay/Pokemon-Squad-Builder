@@ -8,11 +8,9 @@ import App from "./Exercises/Exercise1";
 //import App from "./Exercises/Exercise2";
 
 //Exercise 3
-//import App from "./Exercises/Exercise3";
+// import App from "./Exercises/Exercise3";
 
-/*
- * For Exercises on Context and Reducer switch to the import App statement below
- *   import App from "./PokemonApp"
- */
+// For Live Coding example
+// import App from "./PokemonApp"
 
 ReactDOM.render(<App />, document.getElementById("root"));

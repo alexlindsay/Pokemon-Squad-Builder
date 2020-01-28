@@ -1,4 +1,6 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component } from "react";
+
+/* Exercise 2: convert this class component to use the useState and useEffect hooks */
 
 class TacoCounter extends Component {
   constructor(props) {

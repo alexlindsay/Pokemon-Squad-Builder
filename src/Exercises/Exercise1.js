@@ -1,4 +1,6 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
+
+/* Exercise 1: convert this class component into a functional component using the useState Hook */
 
 class TacoCounter extends Component {
   constructor(props) {
