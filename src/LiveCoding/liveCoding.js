@@ -1,4 +1,4 @@
-import React, {useEffect, useContext, useState} from "react";
+import React, {useEffect, useState} from "react";
 import Question from "../Solutions/components/Question2";
 import Pokemon from "../Solutions/components/Pokemon2";
 import { pokemonApi, pokemonApiJsonConverter } from "../helpers/apiHelper";
@@ -69,6 +69,6 @@ const App = () => {
             </div>
         </div>
     );
-}
+};
 
 export default App;

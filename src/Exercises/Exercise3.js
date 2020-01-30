@@ -4,6 +4,8 @@ import Pokemon from "../components/Pokemon";
 import { pokemonApi, pokemonApiJsonConverter } from "../helpers/apiHelper";
 import { stringHasher } from "../helpers/utils";
 
+/* Exercise 3: Convert the App class component into a functional component using the useState and useEffect hooks - you do not need to convert any files besides this one */
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -20,6 +22,11 @@ class App extends Component {
     }
   }
 
+  questionAnsweredHandler = input => {
+    const hashedPokeNum = stringHasher(input);
+    this.setState({ pokeNum: hashedPokeNum });
+  };
+
   fetchPokemon(pokeNum) {
     pokemonApi(pokeNum)
       .then(res => {
@@ -33,11 +40,6 @@ class App extends Component {
         console.log("ERROR getting pokemon - ", error);
       });
   }
-
-  questionAnsweredHandler = input => {
-    const hashedPokeNum = stringHasher(input);
-    this.setState({ pokeNum: hashedPokeNum });
-  };
 
   resetHandler = () => {
     this.setState({ pokemons: [], questionIndex: 0 });

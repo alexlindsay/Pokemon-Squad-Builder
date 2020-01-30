@@ -10,7 +10,7 @@ const App = () => {
   const [pokemons, setPokemons] = useState([]);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [pokeNum, setPokeNum] = useState(null);
-  const { styles } = useContext(CssContext);
+  const { styles, darkMode, toggleDarkMode } = useContext(CssContext);
 
   useEffect(() => {
     if (pokeNum !== null) {
@@ -49,6 +49,7 @@ const App = () => {
     return (
         <div>
             <div className={styles.appStyle}>
+                <Button text={darkMode ? "Color Mode" : "Dark Mode"} style={styles.topLeftBtnStyle} clicked={toggleDarkMode}/>
                 { questionIndex > 0 && (
                     <Button text="RESET" style={styles.topRightBtnStyle} clicked={resetHandler}/>
                 )}
